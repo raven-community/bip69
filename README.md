@@ -1,8 +1,5 @@
 # bip69
 
-[![NPM Package](https://img.shields.io/npm/v/bip69.svg?style=flat-square)](https://www.npmjs.org/package/bip69)
-[![Build Status](https://img.shields.io/travis/bitcoinjs/bip69.svg?branch=master&style=flat-square)](https://travis-ci.org/bitcoinjs/bip69)
-
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 Lexicographical Indexing of Transaction Inputs and Outputs.
@@ -14,7 +11,7 @@ See [BIP69](https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki).
 ## Example
 
 ``` javascript
-var bitcoinjs = require('bitcoinjs-lib')
+var ravencoinjs = require('ravencoinjs-lib')
 var bip69 = require('bip69')
 
 var inputs = [{
@@ -31,14 +28,14 @@ var outputs = [{
 var sortedInputs = bip69.sortInputs(inputs)
 var sortedOutputs = bip69.sortOutputs(outputs)
 
-var txb = new bitcoinjs.TransactionBuilder()
+var txb = new ravencoinjs.TransactionBuilder()
 
 sortedInputs.forEach(function (input) {
 	txb.addInput(input.txId, input.vout)
 })
 
 sortedOutputs.forEach(function (output) {
-	txb.addOutput(bitcoinjs.Script.fromBuffer(output.script), output.value)
+	txb.addOutput(ravencoinjs.Script.fromBuffer(output.script), output.value)
 })
 
 // ... and so on
